@@ -4,7 +4,8 @@
 
 ```javascript
 // 1. get project to local
-git clone https://github.com/happydemoney/vue-admin-ts.git
+fork this repository
+git clone (your_repository)
 cd vue-admin-ts
 yarn install (if not install yarn, do: npm install -g yarn)
 
@@ -13,4 +14,6 @@ git config commit.template commitTemplate.txt // do once
 git status ( check file to add )
 git add (fileName)
 git commit
+
+// 3. goto you github repository and to do pull-request
 ```
