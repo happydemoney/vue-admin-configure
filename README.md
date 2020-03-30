@@ -2,32 +2,47 @@
 
 vue admin template base on typescript
 
-## Project setup
-```
-yarn install
-```
+## Getting started
 
-### Compiles and hot-reloads for development
 ```
+# clone code to local 
+git clone https://github.com/happydemoney/vue-admin-ts.git
+
+# enter the project directory
+cd vue-admin-ts
+
+# install dependency
+yarn install
+
+# develop
 yarn serve
 ```
 
-### Compiles and minifies for production
+##  Feature
+
+### Menu
+
 ```
-yarn build
+ - NavMenu
+```
+### Layout
+
+```
+ // To be developed
+ - Breadcrumb / tabs-view / sidebar
+```
+### Config component
+
+```
+// To be extend
+ - iTable / iChart
 ```
 
-### Run your unit tests
-```
-yarn test:unit
-```
+### Utils
 
-### Lints and fixes files
 ```
-yarn lint
+// To be developed
+ - execl export
+ - watermark
+ - time processing
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-##  Project plan
