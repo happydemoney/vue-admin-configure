@@ -2,14 +2,18 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+
+import Element from "element-ui";
+// element custom
+import "@/styles/element-variables.scss"
 
 // components
-import iComponents from '@/components'
+import iComponents from "@/components";
 
-Vue.use(element)
-Vue.use(iComponents)
+Vue.use(Element, {
+  size: 'small'
+});
+Vue.use(iComponents);
 Vue.config.productionTip = false;
 
 new Vue({

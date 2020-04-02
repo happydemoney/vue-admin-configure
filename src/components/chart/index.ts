@@ -1,3 +1,3 @@
-import iChart from "./ECharts.vue"
+import iChart from "./ECharts.vue";
 
-export default iChart
+export default iChart;

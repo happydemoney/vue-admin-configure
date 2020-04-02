@@ -1,3 +1,3 @@
-import iTable from "./Table.vue"
+import iTable from "./Table.vue";
 
-export default iTable
+export default iTable;

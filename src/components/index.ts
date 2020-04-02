@@ -1,32 +1,32 @@
-import iTable from "./table"
-import iChart from "./chart"
+import iTable from "./table";
+import iChart from "./chart";
 
 interface ComponentsMap {
-    [props: string]: any
+  [props: string]: any;
 }
 
 const components: ComponentsMap = {
-    iTable,
-    iChart
-}
+  iTable,
+  iChart
+};
 
 // alias set
 const iComponents = {
-    ...components
-}
+  ...components
+};
 
-const install = function (Vue: any) {
-    // if (install.installed) return
+const install = function(Vue: any) {
+  // if (install.installed) return
 
-    Object.keys(iComponents).forEach(key => {
-        Vue.component(key, iComponents[key])
-    })
-}
+  Object.keys(iComponents).forEach(key => {
+    Vue.component(key, iComponents[key]);
+  });
+};
 
 const API = {
-    version: process.env.VERSION,
-    install,
-    ...components
-}
+  version: process.env.VERSION,
+  install,
+  ...components
+};
 
-export default API
+export default API;
