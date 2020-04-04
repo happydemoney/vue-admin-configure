@@ -45,9 +45,9 @@ export default Vue.extend({
 .sidebar-logo-container {
   position: relative;
   width: 100%;
-  height: 50px;
-  line-height: 50px;
-  background: #2b2f3a;
+  height: 60px;
+  line-height: 60px;
+  background: #226A62;
   text-align: center;
   overflow: hidden;
 

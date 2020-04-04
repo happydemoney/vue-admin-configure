@@ -10,12 +10,24 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "root",
+    redirect: '/index',
     component: Layout,
     meta: {
       title: 'dashboard',
       icon: 'pie-chart'
-    }
+    },
+    children: [
+      {
+        path: "index",
+        name: "home",
+        component: () => import( /* webpackChunkName: "HelloWorld" */ '@/views/HelloWorld.vue'),
+        meta: {
+          title: 'index',
+          icon: 'pie-chart'
+        }
+      }
+    ]
   },
   ChartRouter,
   TableRouter

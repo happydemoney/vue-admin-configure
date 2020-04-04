@@ -1,8 +1,6 @@
 <template>
     <el-container>
-        <el-aside width="241px">
-            <sidebar></sidebar>
-        </el-aside>
+        <sidebar></sidebar>
         <el-container direction="vertical">
             <app-header></app-header>
             <app-main></app-main>
@@ -12,6 +10,7 @@
 </template>
 
 <script lang="ts">
+import '@/styles/layout.scss'
 import Vue from 'vue'
 import { AppMain, AppHeader, Sidebar } from './components'
 

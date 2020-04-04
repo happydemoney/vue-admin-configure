@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'has-logo':showLogo}">
+  <el-aside class="app-sidebar-wrap" :class="{'has-logo':showLogo}">
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
@@ -15,7 +15,7 @@
         <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
-  </div>
+  </el-aside>
 </template>
 
 <script lang="ts">
@@ -44,7 +44,7 @@ export default Vue.extend({
     },
     showLogo() {
       // return this.$store.state.settings.sidebarLogo
-      return false
+      return true
     },
     variables() {
       return variables

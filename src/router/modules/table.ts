@@ -7,14 +7,14 @@ const TableRouter = {
     name: 'table',
     meta: {
       title: 'table',
-      icon: 'marketing'
+      icon: 's-grid'
     },
     children: [
         {
             path: 'index',
             component: () => import('@/views/table/index.vue'),
             name: 'tableIndex',
-            meta: { title: 'table', icon: 'marketing', noCache: true }
+            meta: { title: 'table', icon: 's-grid', noCache: true }
         }
     ]
 }

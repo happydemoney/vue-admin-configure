@@ -1,0 +1,31 @@
+// sidebar
+.app-sidebar-wrap {
+    width: 210px !important;
+    overflow: hidden !important;
+    background-color: #20222A;
+    .el-scrollbar__wrap {
+        overflow-x: hidden;
+    }
+    .el-scrollbar,
+    .el-scrollbar__view {
+        height: 100%;
+    }
+    .el-menu {
+        height: 100%;
+        text-align: left;
+    }
+}
+
+// header
+.app-header {
+    font-size: 12px;
+    background-color: #2F9688;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    .app-header-left {
+    }
+    .app-header-right {
+    }
+}
