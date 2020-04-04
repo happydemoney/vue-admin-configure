@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+import "normalize.css"
+
 import Element from "element-ui";
 // element custom
 import "@/styles/element-variables.scss"

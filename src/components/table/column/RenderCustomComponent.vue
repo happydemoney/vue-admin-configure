@@ -18,16 +18,16 @@ export default Vue.extend({
     }
   },
   render(h) {
-    const self = this;
-    return h(self.componentName, {
+    // const self = this;
+    return h(this.componentName, {
       props: {
-        value: self.value,
-        scope: self.scope,
-        ...self.props
+        value: this.value,
+        scope: this.scope,
+        ...this.props
       },
       on: {
         input: function(event) {
-          self.$emit("input", event);
+          this.$emit("input", event);
         }
       }
     });
