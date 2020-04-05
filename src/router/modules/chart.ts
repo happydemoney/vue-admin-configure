@@ -13,13 +13,13 @@ const ChartRouter = {
         {
             path: 'line',
             component: () => import( /* webpackChunkName: "line" */ '@/views/chart/line.vue'),
-            name: 'line',
+            name: 'lineChart',
             meta: { title: 'line Chart', icon: 's-goods', noCache: false }
         },
         {
             path: 'pie',
             component: () => import( /* webpackChunkName: "pie" */ '@/views/chart/pie.vue'),
-            name: 'pie',
+            name: 'pieChart',
             meta: { title: 'pie Chart', icon: 'pie-chart', noCache: true }
         }
     ]

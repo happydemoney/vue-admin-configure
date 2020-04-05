@@ -11,7 +11,7 @@ import "echarts/lib/chart/pie";
 import "echarts/lib/component/tooltip";
 import "echarts/lib/component/legend";
 export default Vue.extend({
-  name: "pie",
+  name: "pieChart",
   data() {
     return {
       chartOptions: {

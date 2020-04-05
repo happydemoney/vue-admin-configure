@@ -14,13 +14,19 @@ import echarts from "echarts/lib/echarts";
 import debounce from "lodash/debounce";
 import { addListener, removeListener } from "resize-detector";
 
+import { Macarons } from './theme';
+echarts.registerTheme('macarons', Macarons);
+
 const INIT_TRIGGERS = ["theme", "initOptions", "autoresize"];
 const REWATCH_TRIGGERS = ["manualUpdate", "watchShallow"];
 
 export default {
   props: {
     options: Object,
-    theme: [String, Object],
+    theme: {
+      type: [String, Object],
+      default: 'macarons'
+    },
     initOptions: Object,
     group: String,
     autoresize: Boolean,
