@@ -17,13 +17,3 @@ export default Vue.extend({
     }
 })
 </script>
-
-<style lang="scss" scoped>
-.app-main {
-  /*60 = navbar  */
-  min-height: calc(100vh - 60px);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-</style>

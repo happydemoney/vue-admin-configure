@@ -25,7 +25,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      title: 'Vue Element Admin',
+      title: 'Vue Admin Ts',
       logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
     }
   }
@@ -45,8 +45,8 @@ export default Vue.extend({
 .sidebar-logo-container {
   position: relative;
   width: 100%;
-  height: 60px;
-  line-height: 60px;
+  height: 50px;
+  line-height: 50px;
   background: #226A62;
   text-align: center;
   overflow: hidden;

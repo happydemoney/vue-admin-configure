@@ -1,5 +1,5 @@
 <template>
-  <el-aside class="app-sidebar-wrap" :class="{'has-logo':showLogo}">
+  <el-aside class="app-sidebar-wrap" :class="{'has-logo':showLogo, 'collapse': isCollapse}">
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
@@ -10,8 +10,7 @@
         :unique-opened="false"
         :active-text-color="variables.menuActiveText"
         :collapse-transition="false"
-        mode="vertical"
-      >
+        mode="vertical">
         <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
@@ -24,6 +23,7 @@ import Logo from './Logo.vue'
 import SidebarItem from './SidebarItem.vue'
 import variables from '@/styles/variables.scss'
 import { routes } from '@/router'
+import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   components: { SidebarItem, Logo },
@@ -33,6 +33,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    ...mapGetters([
+    'sidebar'
+    ]),
     activeMenu() {
       const route = this.$route
       const { meta, path } = route
@@ -50,8 +53,7 @@ export default Vue.extend({
       return variables
     },
     isCollapse() {
-      // return !this.sidebar.opened
-      return false
+      return !this.sidebar.opened
     }
   }
 })

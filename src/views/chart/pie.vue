@@ -1,7 +1,7 @@
 <template>
-  <div class="about">
+  <div class="wrap">
     <h1>iChart pie example</h1>
-    <i-chart :options="chartOptions"></i-chart>
+    <i-chart :options="chartOptions" class="iChart"></i-chart>
   </div>
 </template>
 
@@ -58,3 +58,12 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style lang="scss" scoped>
+.wrap {
+  width: 100%;
+}
+.iChart {
+  width: 100%;
+}
+</style>
