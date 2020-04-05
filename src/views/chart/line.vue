@@ -9,7 +9,7 @@
 import Vue from "vue";
 import "echarts/lib/chart/line";
 export default Vue.extend({
-  name: "About",
+  name: "line",
   data() {
     return {
       chartOptions: {

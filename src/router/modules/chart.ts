@@ -14,7 +14,7 @@ const ChartRouter = {
             path: 'line',
             component: () => import( /* webpackChunkName: "line" */ '@/views/chart/line.vue'),
             name: 'line',
-            meta: { title: 'line Chart', icon: 's-goods', noCache: true }
+            meta: { title: 'line Chart', icon: 's-goods', noCache: false }
         },
         {
             path: 'pie',
