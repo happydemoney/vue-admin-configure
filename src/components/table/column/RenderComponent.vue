@@ -1,5 +1,11 @@
 <script lang="ts">
-import Vue from "vue";
+import Vue, { CreateElement } from "vue";
+declare module "vue/types" {
+  interface Vue {
+    renderFunction: Function
+  }
+}
+
 export default Vue.extend({
   name: "render-component",
   props: {
@@ -11,16 +17,14 @@ export default Vue.extend({
       default: null
     }
   },
-  render(h) {
-    return this.handleRender(h, this.scope);
-  },
-  methods: {
-    handleRender(h, scope) {
+  render(h: CreateElement) {
+    const handleRender = (h: CreateElement, scope: any) => {
       if (typeof scope === "string") {
         return this.renderFunction(h, scope);
       }
       return this.renderFunction(h, scope.row, scope.column, scope.$index);
     }
+    return handleRender(h, this.scope);
   }
 });
 </script>

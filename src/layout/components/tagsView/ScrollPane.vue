@@ -10,14 +10,8 @@
 </template>
 
 <script lang="ts">
-import Vue, { Component } from "vue";
-
 const tagAndTagSpacing = 4; // tagAndTagSpacing
-
-@Component({
-  name: 'ScrollPane'
-})
-
+import Vue from "vue";
 export default Vue.extend({
   name: "ScrollPane",
   data() {
@@ -27,20 +21,23 @@ export default Vue.extend({
   },
   computed: {
     scrollWrapper() {
-      return this.$refs.scrollContainer.$refs.wrap;
+      const scrollContainer = this.$refs.scrollContainer as Vue
+      return scrollContainer.$refs.wrap as HTMLElement;
     }
   },
   methods: {
-    handleScroll(e) {
-      const eventDelta = e.wheelDelta || -e.deltaY * 40;
+    handleScroll(e: MouseWheelEvent) {
+      const eventDelta = (e as any).wheelDelta || -e.deltaY * 40;
       const $scrollWrapper = this.scrollWrapper;
       $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4;
     },
-    moveToTarget(currentTag) {
-      const $container = this.$refs.scrollContainer.$el;
+    moveToTarget(currentTag: HTMLElement) {
+      // const $container = this.$refs.scrollContainer.$el;
+      const scrollContainer = this.$refs.scrollContainer as Vue
+      const $container = scrollContainer.$el as HTMLElement
       const $containerWidth = $container.offsetWidth;
       const $scrollWrapper = this.scrollWrapper;
-      const tagList: any = this.$parent.$refs.tag;
+      const tagList = this.$parent.$refs.tag as any[];
 
       let firstTag = null;
       let lastTag = null;

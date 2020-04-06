@@ -54,14 +54,12 @@
             v-model="scope.row[item.prop]"
             :component-name="item.component.name"
             :props="item.component.props ? item.component.props : null"
-            :scope="scope"
-          >
+            :scope="scope">
           </render-custom-component>
           <render-component
             v-else-if="item.component && item.component.render"
             :render-function="item.component.render"
-            :scope="scope"
-          >
+            :scope="scope">
           </render-component>
         </template>
       </el-table-column>
@@ -117,7 +115,6 @@
 <script>
 import renderComponent from "./column/RenderComponent.vue";
 import renderCustomComponent from "./column/RenderCustomComponent.vue";
-import TableMethods from "./mixins/tableMethods";
 
 const componentsMap = {
   renderComponent,
@@ -127,7 +124,6 @@ const componentsMap = {
 export default {
   name: "iTable",
   components: componentsMap,
-  mixins: [TableMethods],
   props: {
     columns: {
       type: Array,
@@ -206,6 +202,33 @@ export default {
       }
       // 将首字母转大写
       return str.replace(/( |^)[a-z]/g, L => L.toUpperCase());
+    },
+    clearSelection() {
+      this.$refs.iTable.clearSelection();
+    },
+    toggleRowSelection(row, selected) {
+      this.$refs.iTable.toggleRowSelection(row, selected);
+    },
+    toggleAllSelection() {
+      this.$refs.iTable.toggleAllSelection();
+    },
+    toggleRowExpansion(row, expand) {
+      this.$refs.iTable.toggleRowExpansion(row, expand);
+    },
+    setCurrentRow(row) {
+      this.$refs.iTable.setCurrentRow(row);
+    },
+    clearSort() {
+      this.$refs.iTable.clearSort();
+    },
+    clearFilter(columnKey) {
+      this.$refs.iTable.clearFilter(columnKey);
+    },
+    doLayout() {
+      this.$refs.iTable.doLayout();
+    },
+    sort(prop, order) {
+      this.$refs.iTable.sort(prop, order);
     }
   }
 };

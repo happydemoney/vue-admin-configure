@@ -1,5 +1,5 @@
 <script lang="ts">
-import Vue from "vue";
+import Vue, { CreateElement } from "vue";
 export default Vue.extend({
   name: "render-custom-component",
   props: {
@@ -17,17 +17,23 @@ export default Vue.extend({
       default: null
     }
   },
-  render(h) {
-    // const self = this;
-    return h(this.componentName, {
+  render(h: CreateElement) {
+    const componentName = this.componentName
+    const value = this.value
+    const scope = this.scope
+    const props = this.props
+    const $emitInput = (event: InputEvent) => {
+      this.$emit("input", event);
+    }
+    return h(componentName, {
       props: {
-        value: this.value,
-        scope: this.scope,
-        ...this.props
+        value,
+        scope,
+        ...props
       },
       on: {
-        input: function(event) {
-          this.$emit("input", event);
+        input: function(event: InputEvent) {
+          $emitInput(event)
         }
       }
     });

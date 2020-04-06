@@ -17,7 +17,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    linkProps(url) {
+    linkProps(url: string) {
       if (isExternal(url)) {
         return {
           is: "a",

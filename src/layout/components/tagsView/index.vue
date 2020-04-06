@@ -36,10 +36,12 @@
 </template>
 
 <script lang="ts">
+import path from "path";
 import Vue from "vue";
 import ScrollPane from "./ScrollPane.vue";
-import path from "path";
 import { routes } from "@/router";
+import { RouteConfig, Route } from "vue-router/types";
+import { ViewConfig } from "@/store/modules/tagsView";
 
 export default Vue.extend({
   components: { ScrollPane },
@@ -76,15 +78,15 @@ export default Vue.extend({
     this.addTags();
   },
   methods: {
-    isActive(route) {
+    isActive(route: Route) {
       return route.path === this.$route.path;
     },
-    isAffix(tag) {
+    isAffix(tag: ViewConfig) {
       return tag.meta && tag.meta.affix;
     },
-    filterAffixTags(routes, basePath = "/") {
-      let tags = [];
-      routes.forEach(route => {
+    filterAffixTags(routes: RouteConfig[], basePath = "/") {
+      let tags = [] as any[];
+      routes.forEach((route: RouteConfig) => {
         if (route.meta && route.meta.affix) {
           const tagPath = path.resolve(basePath, route.path);
           tags.push({
@@ -104,7 +106,7 @@ export default Vue.extend({
       return tags;
     },
     initTags() {
-      const affixTags = (this.affixTags = this.filterAffixTags(this.routes));
+      const affixTags = ((this.affixTags as any[]) = this.filterAffixTags(this.routes));
       for (const tag of affixTags) {
         // Must have tag name
         if (tag.name) {
@@ -120,11 +122,11 @@ export default Vue.extend({
       return false;
     },
     moveToCurrentTag() {
-      const tags = this.$refs.tag;
+      const tags = this.$refs.tag as any[];
       this.$nextTick(() => {
         for (const tag of tags) {
           if (tag.to.path === this.$route.path) {
-            this.$refs.scrollPane.moveToTarget(tag);
+            (this.$refs.scrollPane as ScrollPane).moveToTarget(tag as any)
             // when query is different then update
             if (tag.to.fullPath !== this.$route.fullPath) {
               this.$store.dispatch("tagsView/updateVisitedView", this.$route);
@@ -134,7 +136,7 @@ export default Vue.extend({
         }
       });
     },
-    refreshSelectedTag(view) {
+    refreshSelectedTag(view: Route) {
       this.$store.dispatch("tagsView/delCachedView", view).then(() => {
         const { fullPath } = view;
         this.$nextTick(() => {
@@ -144,7 +146,7 @@ export default Vue.extend({
         });
       });
     },
-    closeSelectedTag(view) {
+    closeSelectedTag(view: Route) {
       this.$store
         .dispatch("tagsView/delView", view)
         .then(({ visitedViews }) => {
@@ -161,15 +163,15 @@ export default Vue.extend({
           this.moveToCurrentTag();
         });
     },
-    closeAllTags(view) {
+    closeAllTags(view: Route) {
       this.$store.dispatch("tagsView/delAllViews").then(({ visitedViews }) => {
-        if (this.affixTags.some(tag => tag.path === view.path)) {
+        if (this.affixTags.some((tag: Route) => tag.path === view.path)) {
           return;
         }
         this.toLastView(visitedViews, view);
       });
     },
-    toLastView(visitedViews, view) {
+    toLastView(visitedViews: Route[], view: Route) {
       const latestView = visitedViews.slice(-1)[0];
       if (latestView) {
         this.$router.push(latestView.fullPath);
@@ -184,10 +186,11 @@ export default Vue.extend({
         }
       }
     },
-    openMenu(tag, e) {
+    openMenu(tag: Route, e: MouseWheelEvent) {
       const menuMinWidth = 105;
-      const offsetLeft = this.$el.getBoundingClientRect().left; // container margin left
-      const offsetWidth = this.$el.offsetWidth; // container width
+      const $el = this.$el as HTMLElement;
+      const offsetLeft = $el.getBoundingClientRect().left; // container margin left
+      const offsetWidth = $el.offsetWidth; // container width
       const maxLeft = offsetWidth - menuMinWidth; // left boundary
       const left = e.clientX - offsetLeft + 15; // 15: margin right
 
