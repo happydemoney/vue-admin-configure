@@ -1,11 +1,7 @@
 <template>
   <div class="wrap">
     <h2>iChart line example</h2>
-    <i-chart
-      :options="chartOptions"
-      class="iChart"
-      autoresize>
-    </i-chart>
+    <i-chart :options="chartOptions" class="iChart" autoresize> </i-chart>
   </div>
 </template>
 

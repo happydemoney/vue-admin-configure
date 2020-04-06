@@ -1,30 +1,32 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import { RouteConfig } from "vue-router/types";
 import Layout from "@/layout/index.vue";
 
-import ChartRouter from "./modules/chart"
-import TableRouter from "./modules/table"
+import ChartRouter from "./modules/chart";
+import TableRouter from "./modules/table";
 
 Vue.use(VueRouter);
 
-const routes = [
+const routes: RouteConfig[] = [
   {
     path: "/",
     name: "root",
-    redirect: '/index',
+    redirect: "/index",
     component: Layout,
     meta: {
-      title: 'dashboard',
-      icon: 'pie-chart'
+      title: "dashboard",
+      icon: "pie-chart"
     },
     children: [
       {
         path: "index",
         name: "home",
-        component: () => import( /* webpackChunkName: "HelloWorld" */ '@/views/dashboard.vue'),
+        component: () =>
+          import(/* webpackChunkName: "HelloWorld" */ "@/views/dashboard.vue"),
         meta: {
-          title: 'index',
-          icon: 'pie-chart'
+          title: "index",
+          icon: "pie-chart"
         }
       }
     ]
@@ -33,9 +35,7 @@ const routes = [
   TableRouter
 ];
 
-export {
-  routes
-}
+export { routes };
 
 const router = new VueRouter({
   mode: "history",

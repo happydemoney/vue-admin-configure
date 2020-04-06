@@ -1,6 +1,4 @@
 // https://echarts.baidu.com/theme-builder/
-import Macarons from './macarons'
+import Macarons from "./macarons";
 
-export {
-    Macarons
-}
+export { Macarons };

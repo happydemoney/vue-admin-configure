@@ -3,17 +3,17 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import "normalize.css"
+import "normalize.css";
 
 import Element from "element-ui";
 // element custom
-import "@/styles/element-variables.scss"
+import "@/styles/element-variables.scss";
 
 // components
 import iComponents from "@/components";
 
 Vue.use(Element, {
-  size: 'small'
+  size: "small"
 });
 Vue.use(iComponents);
 Vue.config.productionTip = false;

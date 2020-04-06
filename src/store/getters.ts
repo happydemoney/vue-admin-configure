@@ -1,9 +1,8 @@
 const getters = {
-    sidebar: (state: { app: { sidebar: boolean } }) => state.app.sidebar,
-    size: (state: { app: { size: string } }) => state.app.size,
-    device: (state: { app: { device: string } }) => state.app.device,
-    visitedViews: (state: { tagsView: { visitedViews: object[] } }) => state.tagsView.visitedViews,
-    cachedViews: (state: { tagsView: { cachedViews: object[] } }) => state.tagsView.cachedViews
-  }
-  export default getters
-  
+  sidebar: (state: any) => state.app.sidebar,
+  size: (state: any) => state.app.size,
+  device: (state: any) => state.app.device,
+  visitedViews: (state: any) => state.tagsView.visitedViews,
+  cachedViews: (state: any) => state.tagsView.cachedViews
+};
+export default getters;

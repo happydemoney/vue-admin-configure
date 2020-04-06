@@ -1,4 +1,3 @@
-
 <template>
   <!-- eslint-disable vue/require-component-is -->
   <component v-bind="linkProps(to)">
@@ -7,8 +6,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { isExternal } from '@/utils/validate'
+import Vue from "vue";
+import { isExternal } from "@/utils/validate";
 
 export default Vue.extend({
   props: {
@@ -21,17 +20,17 @@ export default Vue.extend({
     linkProps(url) {
       if (isExternal(url)) {
         return {
-          is: 'a',
+          is: "a",
           href: url,
-          target: '_blank',
-          rel: 'noopener'
-        }
+          target: "_blank",
+          rel: "noopener"
+        };
       }
       return {
-        is: 'router-link',
+        is: "router-link",
         to: url
-      }
+      };
     }
   }
-})
+});
 </script>
