@@ -1,4 +1,4 @@
-# vue-admin-ts
+# vue-admin-configure
 
 vue admin template base on typescript
 
@@ -6,10 +6,10 @@ vue admin template base on typescript
 
 ```
 # clone code to local 
-git clone https://github.com/happydemoney/vue-admin-ts.git
+git clone https://github.com/happydemoney/vue-admin-configure.git
 
 # enter the project directory
-cd vue-admin-ts
+cd vue-admin-configure
 
 # install dependency
 yarn install
@@ -20,22 +20,14 @@ yarn serve
 
 ##  Feature
 
-### Menu
-
-```
- - NavMenu
-```
-### Layout
-
-```
- // To be developed
- - Breadcrumb / tabs-view / sidebar
-```
 ### Config component
 
 ```
 // To be extend
  - iTable / iChart
+
+// To be developed
+ - iForm
 ```
 
 ### Utils

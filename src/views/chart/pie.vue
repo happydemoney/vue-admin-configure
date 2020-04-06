@@ -1,15 +1,16 @@
 <template>
   <div class="wrap">
     <h1>iChart pie example</h1>
-    <i-chart :options="chartOptions" class="iChart"></i-chart>
+    <i-chart
+      :options="chartOptions"
+      class="iChart"
+      autoresize>
+    </i-chart>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import "echarts/lib/chart/pie";
-import "echarts/lib/component/tooltip";
-import "echarts/lib/component/legend";
 export default Vue.extend({
   name: "pieChart",
   data() {

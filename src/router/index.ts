@@ -21,7 +21,7 @@ const routes = [
       {
         path: "index",
         name: "home",
-        component: () => import( /* webpackChunkName: "HelloWorld" */ '@/views/HelloWorld.vue'),
+        component: () => import( /* webpackChunkName: "HelloWorld" */ '@/views/dashboard.vue'),
         meta: {
           title: 'index',
           icon: 'pie-chart'

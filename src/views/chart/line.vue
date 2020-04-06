@@ -1,13 +1,16 @@
 <template>
   <div class="wrap">
     <h2>iChart line example</h2>
-    <i-chart :options="chartOptions" class="iChart"></i-chart>
+    <i-chart
+      :options="chartOptions"
+      class="iChart"
+      autoresize>
+    </i-chart>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import "echarts/lib/chart/line";
 export default Vue.extend({
   name: "lineChart",
   data() {
