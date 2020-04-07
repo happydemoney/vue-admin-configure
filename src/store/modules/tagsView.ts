@@ -3,16 +3,13 @@ const state = {
   cachedViews: []
 };
 export interface ViewConfig {
-  path: string,
-  meta: { title: string, noCache: boolean, affix: any },
-  name: string
+  path: string;
+  meta: { title: string; noCache: boolean; affix: any };
+  name: string;
 }
 
 const mutations = {
-  ADD_VISITED_VIEW: (
-    state: { visitedViews: any[] },
-    view: ViewConfig
-  ) => {
+  ADD_VISITED_VIEW: (state: { visitedViews: any[] }, view: ViewConfig) => {
     if (state.visitedViews.some(v => v.path === view.path)) return;
     state.visitedViews.push(
       Object.assign({}, view, {
@@ -20,10 +17,7 @@ const mutations = {
       })
     );
   },
-  ADD_CACHED_VIEW: (
-    state: { cachedViews: any[] },
-    view: ViewConfig
-  ) => {
+  ADD_CACHED_VIEW: (state: { cachedViews: any[] }, view: ViewConfig) => {
     if (state.cachedViews.includes(view.name)) return;
     if (!view.meta.noCache) {
       state.cachedViews.push(view.name);

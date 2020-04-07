@@ -52,6 +52,12 @@ import { isExternal } from "@/utils/validate";
 import Item from "./Item.vue";
 import AppLink from "./Link.vue";
 
+declare module "vue/types/vue" {
+  interface Vue {
+    onlyOneChild: any;
+  }
+}
+
 export default Vue.extend({
   name: "SidebarItem",
   components: { Item, AppLink },

@@ -21,7 +21,7 @@ export default Vue.extend({
   },
   computed: {
     scrollWrapper() {
-      const scrollContainer = this.$refs.scrollContainer as Vue
+      const scrollContainer = this.$refs.scrollContainer as Vue;
       return scrollContainer.$refs.wrap as HTMLElement;
     }
   },
@@ -33,8 +33,8 @@ export default Vue.extend({
     },
     moveToTarget(currentTag: HTMLElement) {
       // const $container = this.$refs.scrollContainer.$el;
-      const scrollContainer = this.$refs.scrollContainer as Vue
-      const $container = scrollContainer.$el as HTMLElement
+      const scrollContainer = this.$refs.scrollContainer as Vue;
+      const $container = scrollContainer.$el as HTMLElement;
       const $containerWidth = $container.offsetWidth;
       const $scrollWrapper = this.scrollWrapper;
       const tagList = this.$parent.$refs.tag as any[];
@@ -55,7 +55,9 @@ export default Vue.extend({
           $scrollWrapper.scrollWidth - $containerWidth;
       } else {
         // find preTag and nextTag
-        const currentIndex = tagList.findIndex((item: any) => item === currentTag);
+        const currentIndex = tagList.findIndex(
+          (item: any) => item === currentTag
+        );
         const prevTag: any = tagList[currentIndex - 1];
         const nextTag: any = tagList[currentIndex + 1];
 

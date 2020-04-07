@@ -43,6 +43,10 @@ import { routes } from "@/router";
 import { RouteConfig, Route } from "vue-router/types";
 import { ViewConfig } from "@/store/modules/tagsView";
 
+interface ScrollPaneType extends Vue {
+  moveToTarget: Function;
+}
+
 export default Vue.extend({
   components: { ScrollPane },
   data() {
@@ -106,7 +110,9 @@ export default Vue.extend({
       return tags;
     },
     initTags() {
-      const affixTags = ((this.affixTags as any[]) = this.filterAffixTags(this.routes));
+      const affixTags = ((this.affixTags as any[]) = this.filterAffixTags(
+        this.routes
+      ));
       for (const tag of affixTags) {
         // Must have tag name
         if (tag.name) {
@@ -126,7 +132,7 @@ export default Vue.extend({
       this.$nextTick(() => {
         for (const tag of tags) {
           if (tag.to.path === this.$route.path) {
-            (this.$refs.scrollPane as ScrollPane).moveToTarget(tag as any)
+            (this.$refs.scrollPane as ScrollPaneType).moveToTarget(tag as any);
             // when query is different then update
             if (tag.to.fullPath !== this.$route.fullPath) {
               this.$store.dispatch("tagsView/updateVisitedView", this.$route);

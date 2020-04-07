@@ -54,12 +54,14 @@
             v-model="scope.row[item.prop]"
             :component-name="item.component.name"
             :props="item.component.props ? item.component.props : null"
-            :scope="scope">
+            :scope="scope"
+          >
           </render-custom-component>
           <render-component
             v-else-if="item.component && item.component.render"
             :render-function="item.component.render"
-            :scope="scope">
+            :scope="scope"
+          >
           </render-component>
         </template>
       </el-table-column>

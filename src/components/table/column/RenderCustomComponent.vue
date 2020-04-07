@@ -8,23 +8,25 @@ export default Vue.extend({
       require: true
     },
     componentName: {
+      type: String,
       required: true
     },
     props: {
-      default: null
+      type: Object,
+      default: function() {
+        return null;
+      }
     },
     scope: {
       default: null
     }
   },
   render(h: CreateElement) {
-    const componentName = this.componentName
-    const value = this.value
-    const scope = this.scope
-    const props = this.props
-    const $emitInput = (event: InputEvent) => {
-      this.$emit("input", event);
-    }
+    const componentName = this.componentName;
+    const value = this.value;
+    const scope = this.scope;
+    const props = this.props;
+    const self = this as Vue;
     return h(componentName, {
       props: {
         value,
@@ -33,7 +35,7 @@ export default Vue.extend({
       },
       on: {
         input: function(event: InputEvent) {
-          $emitInput(event)
+          self.$emit("input", event);
         }
       }
     });

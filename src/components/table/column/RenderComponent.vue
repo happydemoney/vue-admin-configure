@@ -2,7 +2,7 @@
 import Vue, { CreateElement } from "vue";
 declare module "vue/types" {
   interface Vue {
-    renderFunction: Function
+    renderFunction: Function;
   }
 }
 
@@ -23,7 +23,7 @@ export default Vue.extend({
         return this.renderFunction(h, scope);
       }
       return this.renderFunction(h, scope.row, scope.column, scope.$index);
-    }
+    };
     return handleRender(h, this.scope);
   }
 });
