@@ -11,18 +11,35 @@ export default Vue.extend({
   name: "About",
   data() {
     return {
-      tableData: [{ id: 1, name: "钱", sex: "男" }],
+      tableData: [
+        {
+          id: 1,
+          name: "小彬哥",
+          sex: "男",
+          address: '深圳市宝安区新安街道新安三路'
+        }
+      ],
       tableColums: [
         {
           type: "selection"
         },
         {
-          prop: "name",
-          label: "姓名"
+          prop: "userInfo",
+          label: "用户信息",
+          children: [
+            {
+              prop: "name",
+              label: "姓名"
+            },
+            {
+              prop: "sex",
+              label: "性别"
+            }
+          ]
         },
         {
-          prop: "sex",
-          label: "性别"
+          prop: 'address',
+          label: '地址'
         }
       ]
     };
