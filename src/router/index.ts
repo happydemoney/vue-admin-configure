@@ -5,6 +5,7 @@ import Layout from "@/layout/index.vue";
 
 import ChartRouter from "./modules/chart";
 import TableRouter from "./modules/table";
+import FormRouter from "./modules/form";
 
 Vue.use(VueRouter);
 
@@ -32,7 +33,8 @@ const routes: RouteConfig[] = [
     ]
   },
   ChartRouter,
-  TableRouter
+  TableRouter,
+  FormRouter
 ];
 
 export { routes };

@@ -1,5 +1,6 @@
 import iTable from "./table";
 import iChart from "./chart";
+import iForm from "./form";
 
 interface ComponentsMap {
   [props: string]: any;
@@ -7,7 +8,8 @@ interface ComponentsMap {
 
 const components: ComponentsMap = {
   iTable,
-  iChart
+  iChart,
+  iForm
 };
 
 // alias set
