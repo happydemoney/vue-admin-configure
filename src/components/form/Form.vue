@@ -12,7 +12,7 @@
             :prop="item.prop"
             :columns="item.columns || columns">
             <form-element
-                v-model="modelValue[item.key]"
+                v-model="modelValue[item.renderConfig.key]"
                 :renderConfig="item.renderConfig">
             </form-element>
         </el-form-item>
@@ -52,6 +52,7 @@ export default Vue.extend({
                 this.formItems.forEach(item => {
                     model[item.key] = item.value || ''
                 })
+                return model
             }
             return null
         }
