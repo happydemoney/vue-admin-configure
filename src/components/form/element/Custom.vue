@@ -40,8 +40,7 @@ export default Vue.extend({
         }
     },
     methods: {
-        handleInput (val) {
-            console.log(val)
+        handleInput (val: any) {
             this.$emit('input', val)
         }
     }

@@ -40,3 +40,9 @@ yarn serve
  - watermark
  - time processing
 ```
+
+### others
+
+```
+https://www.jianshu.com/p/cc053119f119
+```
