@@ -4,7 +4,7 @@ export default Vue.extend({
   name: "render-custom-component",
   props: {
     value: {
-      type: [String, Array, Number],
+      type: [String, Array, Number, Boolean],
       require: true
     },
     componentName: {
@@ -34,8 +34,8 @@ export default Vue.extend({
         ...props
       },
       on: {
-        input: function(event: InputEvent) {
-          self.$emit("input", event);
+        input: function(value: any) {
+          self.$emit("input", value);
         }
       }
     });
