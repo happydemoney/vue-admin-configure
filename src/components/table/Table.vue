@@ -1,9 +1,6 @@
 <template>
   <!-- https://element.eleme.cn/#/zh-CN/component/table#table-attributes -->
-  <el-table
-    v-bind="$attrs"
-    v-on="$listeners"
-    ref="iTable">
+  <el-table v-bind="$attrs" v-on="$listeners" ref="iTable">
     <!-- 暂无数据 -->
     <template slot="empty">
       <div>暂无数据模板</div>
@@ -18,7 +15,8 @@
       v-if="operation.label"
       :width="operation.width"
       :label="operation.label"
-      :align="operation.align || 'left'">
+      :align="operation.align || 'left'"
+    >
       <template slot-scope="scope">
         <component
           v-for="(item, index) in operation.options"
@@ -31,15 +29,25 @@
           v-show="itemVisible(scope.row, item)"
           @click="handleIconClick(scope.row, item, index)"
           :iconList="item.iconList"
-          @item-click="handleItemClick"/>
+          @item-click="handleItemClick"
+        />
       </template>
     </el-table-column>
   </el-table>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import ITableColumn from './column/index.vue'
+import Vue from "vue";
+import ITableColumn from "./column/index.vue";
+import { ElTable } from "element-ui/types/table";
+export interface OperationItem {
+  type: string;
+  config: object;
+  label: string | Function;
+  methods: string;
+  visible: boolean | Function;
+  disabled: boolean | Function;
+}
 
 export default Vue.extend({
   name: "iTable",
@@ -68,32 +76,30 @@ export default Vue.extend({
       if (this.columns.length === 0) {
         return [];
       }
-      return this.columns.filter(item => {
-        return item.columnVisible !== false;
-      });
+      return this.columns.filter((item: any) => item.columnVisible !== false);
     }
   },
   methods: {
-    itemLabel(row, item) {
+    itemLabel(row: object, item: OperationItem) {
       if (typeof item.label === "function") {
         return item.label(row, item.methods);
       }
       return item.label;
     },
-    itemDisabled(row, item) {
+    itemDisabled(row: object, item: OperationItem) {
       if (typeof item.disabled === "function") {
         return item.disabled(row, item.methods);
       }
       return item.disabled;
     },
-    itemVisible(row, item) {
+    itemVisible(row: object, item: OperationItem) {
       if (typeof item.visible === "function") {
         return item.visible(row, item);
       }
       return item.visible !== false;
     },
-    handleIconClick(row, item, index) {
-      if (this.itemDisabled(row, item)) {
+    handleIconClick(row: object, item: OperationItem, index: number) {
+      if ((this as any).itemDisabled(row, item)) {
         return;
       }
       this.$emit("handle-icon-click", {
@@ -102,8 +108,8 @@ export default Vue.extend({
         index
       });
     },
-    handleItemClick(row, item, index) {
-      if (this.itemDisabled(row, item)) {
+    handleItemClick(row: object, item: OperationItem, index: number) {
+      if ((this as any).itemDisabled(row, item)) {
         return;
       }
       this.$emit("handle-icon-click", {
@@ -112,39 +118,39 @@ export default Vue.extend({
         index
       });
     },
-    titleCaseUpper(str) {
+    titleCaseUpper(str: string) {
       if (!str) {
         return "Undefined";
       }
       // 将首字母转大写
-      return str.replace(/( |^)[a-z]/g, L => L.toUpperCase());
+      return str.replace(/( |^)[a-z]/g, (L: string) => L.toUpperCase());
     },
     clearSelection() {
-      this.$refs.iTable.clearSelection();
+      (this.$refs.iTable as ElTable).clearSelection();
     },
-    toggleRowSelection(row, selected) {
-      this.$refs.iTable.toggleRowSelection(row, selected);
+    toggleRowSelection(row: object, selected?: boolean) {
+      (this.$refs.iTable as ElTable).toggleRowSelection(row, selected);
     },
     toggleAllSelection() {
-      this.$refs.iTable.toggleAllSelection();
+      (this.$refs.iTable as ElTable).toggleAllSelection();
     },
-    toggleRowExpansion(row, expand) {
-      this.$refs.iTable.toggleRowExpansion(row, expand);
+    toggleRowExpansion(row: object, expanded?: boolean) {
+      (this.$refs.iTable as ElTable).toggleRowExpansion(row, expanded);
     },
-    setCurrentRow(row) {
-      this.$refs.iTable.setCurrentRow(row);
+    setCurrentRow(row?: object) {
+      (this.$refs.iTable as ElTable).setCurrentRow(row);
     },
     clearSort() {
-      this.$refs.iTable.clearSort();
+      (this.$refs.iTable as ElTable).clearSort();
     },
-    clearFilter(columnKey) {
-      this.$refs.iTable.clearFilter(columnKey);
+    clearFilter() {
+      (this.$refs.iTable as ElTable).clearFilter();
     },
     doLayout() {
-      this.$refs.iTable.doLayout();
+      (this.$refs.iTable as ElTable).doLayout();
     },
-    sort(prop, order) {
-      this.$refs.iTable.sort(prop, order);
+    sort(prop: string, order: string) {
+      (this.$refs.iTable as ElTable).sort(prop, order);
     }
   }
 });
