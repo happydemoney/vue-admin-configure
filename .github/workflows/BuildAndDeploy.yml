@@ -16,24 +16,24 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
       with:
           persist-credentials: false
-    #- name: Use Node.js ${{ matrix.node-version }} Install and Build 🔧
-    #- uses: actions/setup-node@v1
-    #  with:
-    #    node-version: ${{ matrix.node-version }}
-    #- run: npm install -g yarn
-    #- run: yarn install
-    #- run: yarn build
-    #  env:
-    #    CI: true
-    #- name: Deploy 🚀
-    #- uses: JamesIves/github-pages-deploy-action@releases/v3
-    #  with:
-    #    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-    #    BRANCH: gh-pages # The branch the action should deploy to.
-    #    FOLDER: dist # The folder the action should deploy.
+    - name: Use Node.js ${{ matrix.node-version }} Install and Build 🔧
+    - uses: actions/setup-node@v1
+      with:
+       node-version: ${{ matrix.node-version }}
+    - run: npm install -g yarn
+    - run: yarn install
+    - run: yarn build
+      env:
+       CI: true
+    - name: Deploy 🚀
+    - uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+       BRANCH: gh-pages # The branch the action should deploy to.
+       FOLDER: dist # The folder the action should deploy.
