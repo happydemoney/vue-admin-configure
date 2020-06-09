@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [10.x, 12.x]
 
     steps:
     - uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
@@ -28,7 +28,7 @@ jobs:
        node-version: ${{ matrix.node-version }}
     - run: npm install -g yarn
     - run: yarn install
-    - run: yarn build
+    - run: yarn build --if-present
       env:
        CI: true
 #     - name: Deploy
