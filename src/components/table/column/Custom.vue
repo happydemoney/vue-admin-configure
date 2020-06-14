@@ -27,7 +27,8 @@
       column.filterMultiple !== undefined ? column.filterMultiple : true
     "
     :filter-method="column.filterMethod"
-    :filtered-value="column.filteredValue">
+    :filtered-value="column.filteredValue"
+  >
     <template slot-scope="scope">
       <span v-if="column.formatter">{{
         column.formatter(scope.row, scope.column)
@@ -38,35 +39,37 @@
         v-model="scope.row[column.prop]"
         :component-name="column.component.name"
         :props="column.component.props ? column.component.props : null"
-        :scope="scope">
+        :scope="scope"
+      >
       </render-custom-component>
       <render-component
         v-else-if="column.component && column.component.render"
         :render-function="column.component.render"
-        :scope="scope">
+        :scope="scope"
+      >
       </render-component>
     </template>
   </el-table-column>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import mixinMethods from '../mixins/methods'
-import RenderComponent from './RenderComponent.vue'
-import RenderCustomComponent from './RenderCustomComponent.vue'
+import Vue from "vue";
+import mixinMethods from "../mixins/methods";
+import RenderComponent from "./RenderComponent.vue";
+import RenderCustomComponent from "./RenderCustomComponent.vue";
 
 export default Vue.extend({
-    name: 'CustomColumn',
-    components: {
-      RenderComponent,
-      RenderCustomComponent
-    },
-    props: {
-        column: {
-            type: Object,
-            default: null
-        }
-    },
-    mixins: [ mixinMethods ]
-})
+  name: "CustomColumn",
+  components: {
+    RenderComponent,
+    RenderCustomComponent
+  },
+  props: {
+    column: {
+      type: Object,
+      default: null
+    }
+  },
+  mixins: [mixinMethods]
+});
 </script>

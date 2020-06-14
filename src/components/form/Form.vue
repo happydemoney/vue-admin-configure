@@ -1,25 +1,25 @@
 <template>
-    <el-form
-      v-bind="$attrs"
-      v-on="$listeners"
-      ref="iForm"
-      :model="modelValue"
-      :columns="columns"
+  <el-form
+    v-bind="$attrs"
+    v-on="$listeners"
+    ref="iForm"
+    :model="modelValue"
+    :columns="columns"
+  >
+    <el-form-item
+      v-for="(item, index) in formItems"
+      :key="index"
+      :label="item.label"
+      :prop="item.prop"
+      :columns="item.columns || columns"
     >
-      <el-form-item
-        v-for="(item, index) in formItems"
-        :key="index"
-        :label="item.label"
-        :prop="item.prop"
-        :columns="item.columns || columns"
+      <form-element
+        v-model="modelValue[item.renderConfig.key]"
+        :renderConfig="item.renderConfig"
       >
-        <form-element
-          v-model="modelValue[item.renderConfig.key]"
-          :renderConfig="item.renderConfig"
-        >
-        </form-element>
-      </el-form-item>
-    </el-form>
+      </form-element>
+    </el-form-item>
+  </el-form>
 </template>
 
 <script lang="ts">

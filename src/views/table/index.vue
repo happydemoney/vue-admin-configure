@@ -16,7 +16,7 @@ export default Vue.extend({
           id: 1,
           name: "小彬哥",
           sex: "男",
-          address: '深圳市宝安区新安街道新安三路'
+          address: "深圳市宝安区新安街道新安三路"
         }
       ],
       tableColums: [
@@ -38,8 +38,8 @@ export default Vue.extend({
           ]
         },
         {
-          prop: 'address',
-          label: '地址'
+          prop: "address",
+          label: "地址"
         }
       ]
     };

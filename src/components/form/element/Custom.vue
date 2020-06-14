@@ -1,48 +1,49 @@
 <template>
-    <render-custom-component
-        :value="val"
-        @input="handleInput"
-        :component-name="renderConfig.component.name"
-        :props="renderConfig.component.props ? renderConfig.component.props : null"
-        :scope="scope">
-    </render-custom-component>
+  <render-custom-component
+    :value="val"
+    @input="handleInput"
+    :component-name="renderConfig.component.name"
+    :props="renderConfig.component.props ? renderConfig.component.props : null"
+    :scope="scope"
+  >
+  </render-custom-component>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import RenderCustomComponent from './RenderCustomComponent.vue'
+import Vue from "vue";
+import RenderCustomComponent from "./RenderCustomComponent.vue";
 
 export default Vue.extend({
-    name: 'iInput',
-    components: {
-      RenderCustomComponent
+  name: "iInput",
+  components: {
+    RenderCustomComponent
+  },
+  props: {
+    value: {
+      default: null
     },
-    props: {
-        value: {
-            default: null
-        },
-        renderConfig: {
-            type: Object,
-            default: null
-        },
-        scope: {
-            default: null
-        }
+    renderConfig: {
+      type: Object,
+      default: null
     },
-    data () {
-        return {
-            val: this.value
-        }
-    },
-    watch: {
-        value (newVal, oldVal) {
-            this.val = newVal
-        }
-    },
-    methods: {
-        handleInput (val: any) {
-            this.$emit('input', val)
-        }
+    scope: {
+      default: null
     }
-})
+  },
+  data() {
+    return {
+      val: this.value
+    };
+  },
+  watch: {
+    value(newVal, oldVal) {
+      this.val = newVal;
+    }
+  },
+  methods: {
+    handleInput(val: any) {
+      this.$emit("input", val);
+    }
+  }
+});
 </script>
