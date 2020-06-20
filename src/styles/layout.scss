@@ -8,6 +8,18 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+    > .el-scrollbar {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 1px;
+      bottom: 0;
+      left: 0;
+      box-sizing: border-box;
+      .scrollbar-wrapper {
+        overflow-x: hidden!important;
+      }
+    }
 }
 // sidebar
 .app-sidebar-wrap {
