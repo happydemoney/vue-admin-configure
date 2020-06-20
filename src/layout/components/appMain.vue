@@ -1,11 +1,13 @@
 <template>
-  <el-main class="app-main">
-    <transition name="fade-transform" mode="out-in">
+  <div class="app-main">
+    <!-- <transition name="fade-transform" mode="out-in"> -->
+      <el-scrollbar wrap-class="scrollbar-wrapper">
       <keep-alive :include="cachedViews">
         <router-view :key="key" />
       </keep-alive>
-    </transition>
-  </el-main>
+      </el-scrollbar>
+    <!-- </transition> -->
+  </div>
 </template>
 
 <script lang="ts">
