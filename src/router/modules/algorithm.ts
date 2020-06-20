@@ -13,7 +13,7 @@ const AlgorithmRouter = {
     {
       path: "sort",
       component: () =>
-        import(/* webpackChunkName: "line" */ "@/views/algorithm/sort.vue"),
+        import(/* webpackChunkName: "line" */ "@/views/algorithm/sort/index.vue"),
       name: "algorithmSort",
       meta: { title: "algorithm sort", icon: "s-goods", noCache: false }
     }
