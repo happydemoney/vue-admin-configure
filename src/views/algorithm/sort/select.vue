@@ -2,11 +2,9 @@
   <div class="wrap">
     <h2>Select Sort</h2>
     <el-button-group>
-      <el-button
-        type="success"
-        @click="sortInit"
-        :disabled="!sorted"
-        >Start</el-button>
+      <el-button type="success" @click="sortInit" :disabled="!sorted"
+        >Start</el-button
+      >
     </el-button-group>
     <i-chart :options="sortOptions" class="iChart" autoresize> </i-chart>
   </div>
@@ -41,16 +39,16 @@ export default Vue.extend({
       const arrLength = array.length;
       let i = 0;
       while (i < arrLength) {
-        let min = i
-        for (let j = i+1; j < arrLength - 1; j++) {
+        let min = i;
+        for (let j = i + 1; j < arrLength - 1; j++) {
           if (array[j].value < array[min].value) {
-            min = j
+            min = j;
           }
         }
         if (i !== min) {
-          const temp = this.deepCopy(array[min])
-          array[min] = this.deepCopy(array[i])
-          array[i] = temp
+          const temp = this.deepCopy(array[min]);
+          array[min] = this.deepCopy(array[i]);
+          array[i] = temp;
           this.sortOptions = this.setChartOptions(array);
           await sleep(this.sortSpeed);
         }

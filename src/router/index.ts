@@ -7,6 +7,7 @@ import ChartRouter from "./modules/chart";
 import TableRouter from "./modules/table";
 import FormRouter from "./modules/form";
 import AlgorithmRouter from "./modules/algorithm";
+import TabsDragRouter from "./modules/tabsDrag";
 
 Vue.use(VueRouter);
 
@@ -36,7 +37,8 @@ const routes: RouteConfig[] = [
   ChartRouter,
   TableRouter,
   FormRouter,
-  AlgorithmRouter
+  AlgorithmRouter,
+  TabsDragRouter
 ];
 
 export { routes };

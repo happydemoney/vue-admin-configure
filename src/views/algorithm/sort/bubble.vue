@@ -6,7 +6,8 @@
         type="success"
         @click="bubbleSortInit"
         :disabled="!bubbleSorted"
-        >Start</el-button>
+        >Start</el-button
+      >
     </el-button-group>
     <i-chart :options="bubbleSortOptions" class="iChart" autoresize> </i-chart>
   </div>
@@ -27,6 +28,7 @@ export default Vue.extend({
     };
   },
   mounted() {
+    window.console.log("bubble sort mounted!!!");
     this.bubbleSortInit();
   },
   methods: {

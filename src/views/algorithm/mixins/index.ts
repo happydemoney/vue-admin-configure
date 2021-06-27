@@ -1,8 +1,8 @@
 export default {
-  data () {
+  data() {
     return {
       sortSpeed: 500
-    }
+    };
   },
   methods: {
     deepCopy(value: object) {

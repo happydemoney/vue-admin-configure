@@ -1,11 +1,11 @@
 <template>
   <div class="app-main">
     <!-- <transition name="fade-transform" mode="out-in"> -->
-      <el-scrollbar wrap-class="scrollbar-wrapper">
+    <el-scrollbar wrap-class="scrollbar-wrapper">
       <keep-alive :include="cachedViews">
         <router-view :key="key" />
       </keep-alive>
-      </el-scrollbar>
+    </el-scrollbar>
     <!-- </transition> -->
   </div>
 </template>

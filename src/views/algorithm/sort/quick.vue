@@ -2,11 +2,9 @@
   <div class="wrap">
     <h2>Quick Sort</h2>
     <el-button-group>
-      <el-button
-        type="success"
-        @click="quickSortInit"
-        :disabled="!quickSorted"
-        >Start</el-button>
+      <el-button type="success" @click="quickSortInit" :disabled="!quickSorted"
+        >Start</el-button
+      >
     </el-button-group>
     <i-chart :options="quickSortOptions" class="iChart" autoresize> </i-chart>
   </div>
@@ -38,22 +36,22 @@ export default Vue.extend({
       this.quickSort(sortData, 0, array.length - 1);
     },
     async quickSort(array: any[], left: number, right: number) {
-      let isSorted = true
+      let isSorted = true;
       if (left >= right) {
         return;
       }
       const pivot = await this.getPivot(array, left, right);
       if (left < pivot - 1) {
-        isSorted = false
+        isSorted = false;
         this.quickSort(array, left, pivot - 1);
       }
       if (right >= pivot + 1) {
-        isSorted = false
+        isSorted = false;
         this.quickSort(array, pivot + 1, right);
       }
       if (isSorted) {
         this.quickSorted = true;
-        for (let k =  0; k < array.length; k++) {
+        for (let k = 0; k < array.length; k++) {
           array[k].itemStyle = { color: "#aaa" };
         }
         this.quickSortOptions = this.setChartOptions(array);
